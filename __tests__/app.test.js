@@ -27,4 +27,9 @@ describe('app routes', () => {
     const res = await request(app).get('/blue');
     expect(res.text).toEqual('<h1>blue</h1>');
   });
+
+  it('anything else returns 404', async () => {
+    const res = await request(app).get('/bees');
+    expect(res.status).toEqual(404);
+  });
 });
